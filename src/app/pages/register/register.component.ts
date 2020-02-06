@@ -20,12 +20,12 @@ export class RegisterComponent implements OnInit {
     "Javascript3"
   ]
 
-  constructor(private router: Router) { 
-    
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
-  }
+
+    }
 
   onNext() {
     this.step++;
