@@ -68,7 +68,7 @@ steps:
 
 - task: AzureFileCopy@3
   inputs:
-    SourcePath: '$(system.defaultworkingdirectory)'
+    SourcePath: '$(build.artifactstagingdirectory)'
     azureSubscription: 'ResourceShare-connection'
     Destination: 'AzureBlob'
     storage: 'cataylst'
