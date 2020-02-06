@@ -26,9 +26,19 @@ steps:
 - script: |
     echo %cd%
     npm install
-    npm run build --prod
-  displayName: 'npm install and build'
+  displayName: 'npm install'
 
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    echo %cd%
+    dir
+    npm run build --prod
+  displayName: 'npm build'
+  
 - task: CmdLine@2
   inputs:
     script: |
