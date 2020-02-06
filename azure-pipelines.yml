@@ -25,7 +25,7 @@ steps:
 
 - script: |
     echo %cd%
-    npm install && grunt
+    npm install
     npm run build --prod
   displayName: 'npm install and build'
 
@@ -37,13 +37,13 @@ steps:
       echo Hello world
       dir
     workingDirectory: '$(system.defaultworkingdirectory)'
-# - task: CopyFiles@2
-#   inputs:
-#     SourceFolder: '$(system.defaultworkingdirectory)/dist/'
-#     Contents: '**'
-#     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-#     CleanTargetFolder: true
-#     OverWrite: true
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)/dist/'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
+    OverWrite: true
 - task: PublishBuildArtifacts@1
   inputs: 
     pathtoPublish: $(build.artifactstagingdirectory)
